@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Lighthouse</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>The Lighthouse</h1>
+
+    <div id="map" aria-hidden="true">
+      <div class="map-room" id="map-spiral-stair">Spiral Stair</div>
+      <div class="map-room" id="map-lamp-room">Lamp Room</div>
+      <div class="map-room" id="map-keepers-kitchen">Keeper's Kitchen</div>
+      <div class="map-room" id="map-rocks">Rocks</div>
+    </div>
+
+    <svg width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="sketchy" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02 0.04" numOctaves="2" seed="7" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+    </svg>
+
+    <div id="scene">
+    <h2 id="room-name"></h2>
+
+    <div id="illustration" aria-hidden="true">
+      <svg class="room-illustration" id="illustration-spiral-stair" viewBox="0 0 220 140">
+        <g filter="url(#sketchy)" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M55,10 L38,130"/>
+          <path d="M165,10 L182,130"/>
+          <path d="M60,120 L100,110 L70,95 L112,85 L80,70 L116,58 L85,44 L120,34 L92,20"/>
+          <circle cx="110" cy="14" r="6"/>
+        </g>
+      </svg>
+
+      <svg class="room-illustration" id="illustration-lamp-room" viewBox="0 0 220 140">
+        <g filter="url(#sketchy)" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M40,58 A70,70 0 0 1 180,58"/>
+          <path d="M60,42 L58,100"/>
+          <path d="M100,26 L96,100"/>
+          <path d="M140,26 L144,100"/>
+          <path d="M160,42 L162,100"/>
+          <path d="M40,100 L180,100"/>
+          <circle cx="110" cy="76" r="15"/>
+          <circle cx="110" cy="76" r="7"/>
+          <path d="M22,128 Q45,122 68,128 T116,128 T164,128 T206,128"/>
+        </g>
+      </svg>
+
+      <svg class="room-illustration" id="illustration-keepers-kitchen" viewBox="0 0 220 140">
+        <g filter="url(#sketchy)" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="18" y="14" width="42" height="34"/>
+          <path d="M39,14 L39,48"/>
+          <path d="M18,31 L60,31"/>
+          <path d="M48,92 L172,92"/>
+          <path d="M60,92 L54,128"/>
+          <path d="M160,92 L166,128"/>
+          <ellipse cx="92" cy="76" rx="19" ry="14" fill="currentColor" fill-opacity="0.12"/>
+          <path d="M108,68 L124,58"/>
+          <path d="M82,60 Q92,50 102,60"/>
+          <rect x="132" y="78" width="26" height="8"/>
+          <rect x="136" y="70" width="26" height="8"/>
+        </g>
+      </svg>
+
+      <svg class="room-illustration current" id="illustration-rocks" viewBox="0 0 220 140">
+        <g filter="url(#sketchy)" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M95,18 L95,80 L125,80 L125,18 Z"/>
+          <path d="M88,18 L132,18"/>
+          <path d="M100,10 L120,10"/>
+          <path d="M28,118 L46,86 L62,110 L80,80 L100,112 L122,90 L142,118" fill="currentColor" fill-opacity="0.12"/>
+          <path d="M14,128 Q40,122 66,128 T118,128 T170,128 T206,128"/>
+          <path d="M10,136 Q40,131 70,136 T130,136 T190,136"/>
+        </g>
+      </svg>
+    </div>
+
+    <p id="room-description"></p>
+    <p id="room-exits"></p>
+    </div>
+
+    <p id="message" role="status"></p>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

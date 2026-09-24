@@ -1,0 +1,128 @@
+:root {
+  color-scheme: dark;
+}
+
+body {
+  --accent: #ffd873;
+  margin: 0;
+  padding: 2rem 1rem;
+  background: #0d1620;
+  color: #dce6ee;
+  font-family: Georgia, 'Times New Roman', serif;
+  display: flex;
+  justify-content: center;
+  transition: background-color 600ms ease;
+}
+
+body.room-rocks {
+  --accent: #7fd6e0;
+  background: #0d1a22;
+}
+
+body.room-spiral-stair {
+  --accent: #b5a0dd;
+  background: #1b1826;
+}
+
+body.room-lamp-room {
+  --accent: #ffd873;
+  background: #2a2110;
+}
+
+body.room-keepers-kitchen {
+  --accent: #e2916a;
+  background: #241712;
+}
+
+main {
+  max-width: 32rem;
+  width: 100%;
+}
+
+h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  color: #ffd873;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#map {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+  max-width: 20rem;
+  margin: 0 auto 2rem;
+}
+
+.map-room {
+  border: 1px solid #35495c;
+  border-radius: 4px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #7d93a6;
+  background: #131f2c;
+}
+
+.map-room.current {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: #24344a;
+  transition: border-color 500ms ease, color 500ms ease;
+}
+
+.map-room.current::before {
+  content: "\25CF  ";
+}
+
+h2 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  transition: color 500ms ease;
+}
+
+#scene {
+  transition: opacity 220ms ease;
+}
+
+#scene.fading {
+  opacity: 0;
+}
+
+#illustration {
+  background: #131f2c;
+  border: 1px solid #35495c;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.room-illustration {
+  display: none;
+  width: 100%;
+  height: auto;
+  color: var(--accent);
+  transition: color 500ms ease;
+}
+
+.room-illustration.current {
+  display: block;
+}
+
+#room-description {
+  line-height: 1.5;
+}
+
+#room-exits {
+  color: var(--accent);
+  opacity: 0.85;
+  font-style: italic;
+  transition: color 500ms ease;
+}
+
+#message {
+  min-height: 1.5em;
+  color: #ff9d7a;
+}
